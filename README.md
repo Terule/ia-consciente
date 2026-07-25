@@ -144,8 +144,22 @@ docker compose up --build -d
 
 ### 2. Acesse a aplicação
 
+Como o Compose publica a porta do host dinamicamente, descubra a porta atribuída:
+
+```bash
+docker compose port ia-consciente 3000
+```
+
+Exemplo de saída:
+
 ```text
-http://localhost:3000
+0.0.0.0:51864
+```
+
+Nesse exemplo, acesse:
+
+```text
+http://localhost:51864
 ```
 
 ### 3. Acompanhe os logs (opcional)

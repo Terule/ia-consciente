@@ -22,6 +22,8 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # alcançar o Next.js, o servidor precisa escutar em todas as interfaces.
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
+# Prisma CLI e aplicação usam exatamente o mesmo arquivo no volume persistente.
+ENV DATABASE_URL="file:/app/prisma/data/dev.db"
 RUN apk add --no-cache openssl
 
 COPY --from=builder /app/public ./public

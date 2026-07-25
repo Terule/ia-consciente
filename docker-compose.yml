@@ -7,8 +7,8 @@ services:
       # Publica a porta 3000 do container em uma porta livre do host.
       - "3000"
     environment:
-      # O Prisma CLI resolve este caminho dentro de /app/prisma.
-      DATABASE_URL: file:./data/dev.db
+      # Prisma CLI e aplicação usam o mesmo SQLite no volume persistente.
+      DATABASE_URL: file:/app/prisma/data/dev.db
       # Mantém o Next acessível para o proxy reverso do Coolify.
       HOSTNAME: 0.0.0.0
       PORT: 3000
