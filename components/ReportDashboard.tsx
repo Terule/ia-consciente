@@ -9,7 +9,7 @@ import {
   LinearScale,
   Tooltip,
 } from "chart.js";
-import { AlertCircle, BarChart3, LoaderCircle, UsersRound } from "lucide-react";
+import { AlertCircle, BarChart3, ClipboardList, LoaderCircle, UsersRound } from "lucide-react";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { useEffect, useMemo, useState } from "react";
 import { PrintReportButton } from "@/components/PrintReportButton";
@@ -153,9 +153,15 @@ export function ReportDashboard() {
           </section>
 
           {metrics.total === 0 ? (
-            <p className="rounded-xl bg-slate-50 p-6 text-slate-700">
-              Ainda não há avaliações registradas. Os gráficos aparecerão assim que a comunidade enviar suas respostas.
-            </p>
+            <section className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-12 text-center" aria-labelledby="empty-feedback-title">
+              <div className="mx-auto grid size-12 place-items-center rounded-full bg-blue-100 text-blue-700" aria-hidden="true">
+                <ClipboardList className="size-6" />
+              </div>
+              <h2 id="empty-feedback-title" className="mt-5 text-xl font-bold text-slate-900">Ainda não há avaliações registradas</h2>
+              <p className="mx-auto mt-2 max-w-xl leading-7 text-slate-600">
+                Assim que as pessoas participantes enviarem o formulário de avaliação, os gráficos, métricas e depoimentos aparecerão aqui.
+              </p>
+            </section>
           ) : (
             <>
               <section className="mb-8 grid gap-6 lg:grid-cols-2" aria-label="Gráficos do relatório">
