@@ -18,6 +18,10 @@ FROM node:22-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+# O Docker define HOSTNAME com o ID do container. Para o proxy do Coolify
+# alcançar o Next.js, o servidor precisa escutar em todas as interfaces.
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
 RUN apk add --no-cache openssl
 
 COPY --from=builder /app/public ./public
