@@ -2,7 +2,7 @@ services:
   ia-consciente:
     build: .
     ports:
-      - "3000:3000"
+      - 3000
     environment:
       # O Prisma CLI resolve este caminho dentro de /app/prisma.
       DATABASE_URL: file:./data/dev.db
