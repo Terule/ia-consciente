@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+
+# Next.js
+/.next
+/out
+/generated
+
+# local environment files
+.env*
+!.env.example
+
+# local SQLite database
+/prisma/data/*.db
+/prisma/data/*.db-journal
+
+# logs
+npm-debug.log*

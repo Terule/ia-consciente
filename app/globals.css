@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .report-page {
+    max-width: none;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .report-page table {
+    font-size: 9pt;
+  }
+
+  .report-page .report-chart {
+    height: 55mm !important;
+  }
+
+  .report-page canvas {
+    max-width: 100% !important;
+  }
+
+  .report-page tr,
+  .report-page section {
+    break-inside: avoid;
+  }
+
+  body:has(.feedback-confirmation) header,
+  body:has(.feedback-confirmation) main,
+  body:has(.feedback-confirmation) footer {
+    display: none !important;
+  }
+
+  .feedback-confirmation {
+    position: static !important;
+    display: block !important;
+    overflow: visible !important;
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  .feedback-confirmation > div {
+    box-shadow: none !important;
+    margin: 0 !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+}
